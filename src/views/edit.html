@@ -1,0 +1,12 @@
+<!---
+<pre>
+        <%= task %>
+</pre>
+--->
+<form action="/edit/<%= task.id%>" method="POST">
+    <input type="text" name="title" placeholder="Inserte un titulo" value="<%=task.title%>">
+    <textarea name="descripcion"><%= task.descripcion%></textarea>
+    <button type="submit">
+        update
+    </button>
+</form>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>crud</title>
+</head>
+
+<body>
+    <!--<%= tasks %>-->
+    <form action="/add" method="POST">
+        <input type="text" name="title" placeholder="Inserte un titulo">
+        <textarea name="descripcion"></textarea>
+        <button type="submit">
+            agregar
+        </button>
+    </form>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nº</th>
+                    <th>titulo</th>
+                    <th>descripcion</th>
+                    <th>operacion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i = 0; i < tasks.length; i++){%>
+                    <tr>
+                        <td>
+                            <%= i + 1 %>
+                        </td>
+                        <td>
+                            <%= tasks[i].title%>
+                        </td>
+                        <td>
+                            <%= tasks[i].descripcion%>
+                        </td>
+                        <td>
+                            <a href="">done</a>
+                            <a href="/delete/<%= tasks[i]._id %>">delete</a>
+                            <a href="/edit/<%= tasks[i]._id %>">update</a>
+                        </td>
+                    </tr>
+                    <%}%>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
